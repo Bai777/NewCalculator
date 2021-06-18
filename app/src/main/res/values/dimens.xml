@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topMarginMainButton">84dp</dimen>
+    <dimen name="textSizeDisplay">60sp</dimen>
+    <dimen name="marginTopDisplay">20dp</dimen>
+    <dimen name="sizeBtnCalc">38sp</dimen>
+</resources>

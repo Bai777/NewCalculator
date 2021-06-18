@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalcActivity">
+
+    <TextView
+        android:id="@+id/calcDisplay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/marginTopDisplay"
+        android:gravity="end"
+        android:text="@string/_0"
+        android:textAlignment="textEnd"
+        android:textColor="@color/purple_500"
+        android:textSize="@dimen/textSizeDisplay"
+        app:layout_constraintBottom_toTopOf="@+id/btnAC"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread" />
+
+    <Button
+        android:id="@+id/btnAC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnAC"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnSeven"
+        app:layout_constraintEnd_toStartOf="@id/btnPlusMinus"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calcDisplay" />
+
+    <Button
+        android:id="@+id/btnPlusMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnPlusMinus"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnEight"
+        app:layout_constraintEnd_toStartOf="@id/btnPercent"
+        app:layout_constraintStart_toEndOf="@id/btnAC"
+        app:layout_constraintTop_toBottomOf="@id/calcDisplay" />
+
+    <Button
+        android:id="@+id/btnPercent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnPercent"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnNine"
+        app:layout_constraintEnd_toStartOf="@id/btnDiv"
+        app:layout_constraintStart_toEndOf="@id/btnPlusMinus"
+        app:layout_constraintTop_toBottomOf="@id/calcDisplay" />
+
+    <Button
+        android:id="@+id/btnDiv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnDiv"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnMulti"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnPercent"
+        app:layout_constraintTop_toBottomOf="@id/calcDisplay" />
+
+    <Button
+        android:id="@+id/btnSeven"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnSeven"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnFour"
+        app:layout_constraintEnd_toStartOf="@id/btnEight"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnAC" />
+
+    <Button
+        android:id="@+id/btnEight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnEight"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnFive"
+        app:layout_constraintEnd_toStartOf="@id/btnNine"
+        app:layout_constraintStart_toEndOf="@id/btnSeven"
+        app:layout_constraintTop_toBottomOf="@id/btnPlusMinus" />
+
+    <Button
+        android:id="@+id/btnNine"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnNine"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnSix"
+        app:layout_constraintEnd_toStartOf="@id/btnMulti"
+        app:layout_constraintStart_toEndOf="@id/btnEight"
+        app:layout_constraintTop_toBottomOf="@id/btnPercent" />
+
+    <Button
+        android:id="@+id/btnMulti"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnMulti"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnMinus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnNine"
+        app:layout_constraintTop_toBottomOf="@+id/btnDiv" />
+
+    <Button
+        android:id="@+id/btnFour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnFour"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnOne"
+        app:layout_constraintEnd_toStartOf="@id/btnFive"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnSeven" />
+
+    <Button
+        android:id="@+id/btnFive"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnFive"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnTwo"
+        app:layout_constraintEnd_toStartOf="@id/btnSix"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnFour"
+        app:layout_constraintTop_toBottomOf="@id/btnEight"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnSix"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnSix"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnThree"
+        app:layout_constraintEnd_toStartOf="@id/btnMinus"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnFive"
+        app:layout_constraintTop_toBottomOf="@id/btnNine"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnMinus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnMinus"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnPlus"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnSix"
+        app:layout_constraintTop_toBottomOf="@+id/btnMulti"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnOne"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnOne"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnZero"
+        app:layout_constraintEnd_toStartOf="@id/btnTwo"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnFour" />
+
+    <Button
+        android:id="@+id/btnTwo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnTwo"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnZero"
+        app:layout_constraintEnd_toStartOf="@id/btnThree"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnOne"
+        app:layout_constraintTop_toBottomOf="@id/btnFive"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnThree"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnThree"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnComma"
+        app:layout_constraintEnd_toStartOf="@id/btnPlus"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnTwo"
+        app:layout_constraintTop_toBottomOf="@id/btnSix"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnPlus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnPlus"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toTopOf="@id/btnEqually"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnThree"
+        app:layout_constraintTop_toBottomOf="@+id/btnMinus"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnZero"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnZero"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnComma"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnOne" />
+
+    <Button
+        android:id="@+id/btnComma"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnComma"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnEqually"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnZero"
+        app:layout_constraintTop_toBottomOf="@id/btnThree"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <Button
+        android:id="@+id/btnEqually"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/textBtnEqually"
+        android:textSize="@dimen/sizeBtnCalc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintStart_toEndOf="@id/btnComma"
+        app:layout_constraintTop_toBottomOf="@+id/btnPlus"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
