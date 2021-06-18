@@ -9,7 +9,6 @@ import android.widget.EditText;
 
 
 
-
 public class ScrolView extends AppCompatActivity {
 
     private EditText editTextTwo;
