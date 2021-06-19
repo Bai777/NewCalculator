@@ -37,9 +37,6 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     private char operation;
 
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -93,9 +90,9 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
-
     @Override
     public void onClick(View v) {
+        float res = 0;
         switch (v.getId()) {
             case R.id.btnZero:
                 first_num = 0;
@@ -115,7 +112,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btnFour:
                 first_num = 4;
-               addNumber((int) first_num);
+                addNumber((int) first_num);
                 break;
             case R.id.btnFive:
                 first_num = 5;
@@ -146,29 +143,39 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnPercent:
                 percent();
                 break;
+            case R.id.btnComma:
+                comma();
+                break;
 
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void percent(){
-        if(!this.str_num.equals("")) {
+    public void comma(){
+        if(!this.str_num.contains(".")) {
+            this.str_num += ".";
+            calcDisplay.setText(str_num);
+        }
+    }
+
+    public void percent() {
+        if (!this.str_num.equals("")) {
             float num = Float.parseFloat(this.str_num) * 0.01f;
             this.str_num = Float.toString(num);
             calcDisplay.setText(str_num);
         }
     }
 
-    public void plusMinus(){
-        if(!this.str_num.equals("")) {
-            int num = Integer.parseInt(this.str_num) * -1;
-            this.str_num = Integer.toString(num);
+    public void plusMinus() {
+        if (!this.str_num.equals("")) {
+            float num = Float.parseFloat(this.str_num) * -1;
+            this.str_num = Float.toString(num);
             calcDisplay.setText(str_num);
         }
     }
 
-    public void clearbtnAC(){
+    public void clearbtnAC() {
         calcDisplay.setText("0");
         this.str_num = "";
         this.first_num = 0;
@@ -179,8 +186,6 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         str_num += Integer.toString(number);
         calcDisplay.setText(str_num);
     }
-
-
 
 
 }
