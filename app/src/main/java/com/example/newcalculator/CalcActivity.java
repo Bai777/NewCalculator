@@ -2,6 +2,7 @@ package com.example.newcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.Toast;
 
 
 public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
+
 
     private TextView calcDisplay;
     private Button btnAC;
@@ -92,7 +94,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        float res = 0;
+
         switch (v.getId()) {
             case R.id.btnZero:
                 first_num = 0;
@@ -158,6 +160,11 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnPlus:
                 mathAction('+');
                 break;
+            case R.id.btnEqually:
+                if(this.operation == '+' || this.operation == '-'
+                        || this.operation == '/' || this.operation == '*')
+                    equalMethod();
+                break;
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
@@ -208,7 +215,8 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    public void equalMethod(char c) {
+
+    public void equalMethod() {
         float res = 0;
         switch (this.operation) {
             case '+':
@@ -221,13 +229,21 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 if (Integer.parseInt(this.str_num) != 0)
                     res = this.first_num / Float.parseFloat(this.str_num);
                 else
-                    res = 0;
+                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();;
                 break;
             case '*':
                 res = this.first_num * Float.parseFloat(this.str_num);
                 break;
         }
+
         calcDisplay.setText(Float.toString(res));
-        clearbtnAC();
+        clear();
+
+    }
+
+    public void clear(){
+        this.str_num = "";
+        this.operation = 'A';
+        this.first_num = 0;
     }
 }
