@@ -226,7 +226,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 res = this.first_num - Float.parseFloat(this.str_num);
                 break;
             case '/':
-                if (Integer.parseInt(this.str_num) != 0)
+                if (Float.parseFloat(this.str_num) != 0)
                     res = this.first_num / Float.parseFloat(this.str_num);
                 else
                     Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();;
@@ -236,7 +236,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        calcDisplay.setText(Float.toString(res));
+        calcDisplay.setText(this.first_num + "" + this.operation + "" + this.str_num + "" + " = " + Float.toString(res));
         clear();
 
     }
