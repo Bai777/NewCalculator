@@ -2,8 +2,6 @@ package com.example.newcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -37,6 +35,9 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     private String str_num = "";
     private float first_num;
     private char operation;
+
+
+
 
 
     @Override
@@ -82,6 +83,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
 
+
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
@@ -93,15 +95,49 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 first_num = 1;
                 addNumber((int) first_num);
                 break;
+            case R.id.btnTwo:
+                first_num = 2;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnThree:
+                first_num = 3;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnFour:
+                first_num = 4;
+               addNumber((int) first_num);
+                break;
+            case R.id.btnFive:
+                first_num = 5;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnSix:
+                first_num = 6;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnSeven:
+                first_num = 7;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnEight:
+                first_num = 8;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnNine:
+                first_num = 9;
+                addNumber((int) first_num);
+                break;
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
     }
 
-    void addNumber(int number) {
-        this.str_num += Integer.toString(number);
+    public void addNumber(int number) {
+        str_num += Integer.toString(number);
         calcDisplay.setText(str_num);
     }
+
+
 
 
 }
