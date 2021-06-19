@@ -28,4 +28,5 @@
     <string name="editTextTwo">text text text\ntext text text\ntext text text\ntext text text</string>
     <string name="robot">robot</string>
     <string name="btnScrollView">Scroll View</string>
+    <string name="btnTextMainDisplayExit">Выход</string>
 </resources>
