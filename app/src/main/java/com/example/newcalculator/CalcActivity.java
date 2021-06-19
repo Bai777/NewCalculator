@@ -2,12 +2,16 @@ package com.example.newcalculator;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
-public class CalcActivity extends AppCompatActivity {
+public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView calcDisplay;
     private Button btnAC;
@@ -30,8 +34,9 @@ public class CalcActivity extends AppCompatActivity {
     private Button btnComma;
     private Button btnEqually;
 
-
-
+    private String str_num = "";
+    private float first_num;
+    private char operation;
 
 
     @Override
@@ -39,9 +44,21 @@ public class CalcActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calc);
         initialization();
+
+        btnZero.setOnClickListener(this);
+        btnOne.setOnClickListener(this);
+        btnTwo.setOnClickListener(this);
+        btnThree.setOnClickListener(this);
+        btnFour.setOnClickListener(this);
+        btnFive.setOnClickListener(this);
+        btnSix.setOnClickListener(this);
+        btnSeven.setOnClickListener(this);
+        btnEight.setOnClickListener(this);
+        btnNine.setOnClickListener(this);
+
     }
 
-    public void initialization(){
+    public void initialization() {
         calcDisplay = findViewById(R.id.calcDisplay);
         btnAC = findViewById(R.id.btnAC);
         btnPlusMinus = findViewById(R.id.btnPlusMinus);
@@ -63,4 +80,28 @@ public class CalcActivity extends AppCompatActivity {
         btnComma = findViewById(R.id.btnComma);
         btnEqually = findViewById(R.id.btnEqually);
     }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.btnZero:
+                first_num = 0;
+                addNumber((int) first_num);
+                break;
+            case R.id.btnOne:
+                first_num = 1;
+                addNumber((int) first_num);
+                break;
+            default:
+                Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    void addNumber(int number) {
+        this.str_num += Integer.toString(number);
+        calcDisplay.setText(str_num);
+    }
+
+
 }
