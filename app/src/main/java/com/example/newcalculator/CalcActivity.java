@@ -152,6 +152,12 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnMulti:
                 mathAction('*');
                 break;
+            case R.id.btnMinus:
+                mathAction('-');
+                break;
+            case R.id.btnPlus:
+                mathAction('+');
+                break;
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
