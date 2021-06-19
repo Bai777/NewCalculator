@@ -143,9 +143,20 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnPlusMinus:
                 plusMinus();
                 break;
+            case R.id.btnPercent:
+                percent();
+                break;
 
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void percent(){
+        if(!this.str_num.equals("")) {
+            float num = Float.parseFloat(this.str_num) * 0.01f;
+            this.str_num = Float.toString(num);
+            calcDisplay.setText(str_num);
         }
     }
 
