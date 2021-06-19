@@ -146,14 +146,19 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnComma:
                 comma();
                 break;
-
+            case R.id.btnDiv:
+                mathAction('/');
+                break;
+            case R.id.btnMulti:
+                mathAction('*');
+                break;
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
     }
 
-    public void comma(){
-        if(!this.str_num.contains(".")) {
+    public void comma() {
+        if (!this.str_num.contains(".")) {
             this.str_num += ".";
             calcDisplay.setText(str_num);
         }
@@ -187,5 +192,36 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         calcDisplay.setText(str_num);
     }
 
+    public void mathAction(char operation) {
+        if (this.operation != '+' && this.operation != '-'
+                && this.operation != '/' && this.operation != '*') {
+            this.first_num = Float.parseFloat(this.str_num);
+            calcDisplay.setText(String.valueOf(operation));
+            this.str_num = "";
+            this.operation = operation;
+        }
+    }
 
+    public void equalMethod(char c) {
+        float res = 0;
+        switch (this.operation) {
+            case '+':
+                res = this.first_num + Float.parseFloat(this.str_num);
+                break;
+            case '-':
+                res = this.first_num - Float.parseFloat(this.str_num);
+                break;
+            case '/':
+                if (Integer.parseInt(this.str_num) != 0)
+                    res = this.first_num / Float.parseFloat(this.str_num);
+                else
+                    res = 0;
+                break;
+            case '*':
+                res = this.first_num * Float.parseFloat(this.str_num);
+                break;
+        }
+        calcDisplay.setText(Float.toString(res));
+        clearbtnAC();
+    }
 }
