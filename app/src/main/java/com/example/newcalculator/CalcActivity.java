@@ -140,9 +140,20 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnAC:
                 clearbtnAC();
                 break;
+            case R.id.btnPlusMinus:
+                plusMinus();
+                break;
 
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void plusMinus(){
+        if(!this.str_num.equals("")) {
+            int num = Integer.parseInt(this.str_num) * -1;
+            this.str_num = Integer.toString(num);
+            calcDisplay.setText(str_num);
         }
     }
 
