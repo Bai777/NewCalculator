@@ -57,6 +57,16 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         btnEight.setOnClickListener(this);
         btnNine.setOnClickListener(this);
 
+        btnAC.setOnClickListener(this);
+        btnPlusMinus.setOnClickListener(this);
+        btnPercent.setOnClickListener(this);
+        btnDiv.setOnClickListener(this);
+        btnMulti.setOnClickListener(this);
+        btnMinus.setOnClickListener(this);
+        btnPlus.setOnClickListener(this);
+        btnEqually.setOnClickListener(this);
+        btnComma.setOnClickListener(this);
+
     }
 
     public void initialization() {
@@ -127,9 +137,20 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 first_num = 9;
                 addNumber((int) first_num);
                 break;
+            case R.id.btnAC:
+                clearbtnAC();
+                break;
+
             default:
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void clearbtnAC(){
+        calcDisplay.setText("0");
+        this.str_num = "";
+        this.first_num = 0;
+        this.operation = 'A';
     }
 
     public void addNumber(int number) {
