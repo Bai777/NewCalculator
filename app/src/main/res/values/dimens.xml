@@ -5,4 +5,5 @@
     <dimen name="marginTopDisplay">20dp</dimen>
     <dimen name="sizeBtnCalc">38sp</dimen>
     <dimen name="button_round_radius">20dp</dimen>
+    <dimen name="textSizeButtonMainView">20sp</dimen>
 </resources>
