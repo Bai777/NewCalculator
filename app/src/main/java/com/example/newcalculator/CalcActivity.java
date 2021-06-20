@@ -1,16 +1,21 @@
 package com.example.newcalculator;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
 import android.os.Bundle;
+import android.os.Parcel;
+import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
+public class CalcActivity extends AppCompatActivity implements View.OnClickListener{
+
+    private static final String Key = "Key_values";
 
 
     private TextView calcDisplay;
@@ -37,6 +42,10 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     private String str_num = "";
     private float first_num;
     private char operation;
+
+
+
+
 
 
     @Override
@@ -236,7 +245,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
 
-        calcDisplay.setText(this.first_num + "" + this.operation + "" + this.str_num + "" + " = " + Float.toString(res));
+        calcDisplay.setText(Float.toString(res));
         clear();
 
     }
@@ -246,4 +255,22 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         this.operation = 'A';
         this.first_num = 0;
     }
+
+
+
+    // Сохранение данных
+    @Override
+    public void onSaveInstanceState(@NonNull Bundle instanceState) {
+        super.onSaveInstanceState(instanceState);
+        instanceState.putParcelable(Key, (Parcelable)calcDisplay);
+    }
+
+    // Восстановление данных
+    @Override
+    protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
+        super.onRestoreInstanceState(instanceState);
+        calcDisplay = instanceState.getParcelable(Key);
+
+    }
+
 }

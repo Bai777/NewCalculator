@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 
 
@@ -14,6 +13,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private Button btnMainDisplay;
     private Button btnMainExit;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,4 +46,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
     }
+
+
+
 }
