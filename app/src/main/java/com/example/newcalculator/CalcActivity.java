@@ -262,14 +262,15 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onSaveInstanceState(@NonNull Bundle instanceState) {
         super.onSaveInstanceState(instanceState);
-        instanceState.putParcelable(Key, (Parcelable)calcDisplay);
+        instanceState.putString(Key, calcDisplay.getText().toString());
+        instanceState.putParcelable(Key, (Parcelable) calcDisplay);
     }
 
     // Восстановление данных
     @Override
     protected void onRestoreInstanceState(@NonNull Bundle instanceState) {
         super.onRestoreInstanceState(instanceState);
-        calcDisplay = instanceState.getParcelable(Key);
+        calcDisplay.setText(instanceState.getString(Key));
 
     }
 
