@@ -17,7 +17,6 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     private static final String Key = "Key_values";
 
-
     private TextView calcDisplay;
     private Button btnAC;
     private Button btnPlusMinus;

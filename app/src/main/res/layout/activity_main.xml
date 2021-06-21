@@ -20,7 +20,6 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/calcimgmain" />
 
-
     <Button
         android:id="@+id/btnMianLayout"
         android:layout_width="wrap_content"
