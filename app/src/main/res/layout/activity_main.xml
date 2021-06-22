@@ -20,13 +20,14 @@
         app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/calcimgmain" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMianLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
         android:text="@string/nameBtnMainLayout"
         android:textSize="@dimen/textSizeButtonMainView"
+        android:textColor="@color/white"
         app:backgroundTint="#B1F2D14F"
         app:layout_constraintBottom_toTopOf="@+id/btnMainExit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -34,13 +35,14 @@
         app:layout_constraintTop_toBottomOf="@+id/appCompatImageViewMain"
         tools:ignore="UsingOnClickInXml" />
 
-    <Button
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnMainExit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
         android:text="@string/btnTextMainDisplayExit"
         android:textSize="@dimen/textSizeButtonMainView"
+        android:textColor="@color/white"
         app:backgroundTint="#B1F2D14F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
