@@ -9,10 +9,12 @@
 
     <TextView
         android:id="@+id/calcDisplay"
-
+        style="@style/MyStyleDisplayCalc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/marginTopDisplay"
+        android:layout_marginEnd="@dimen/marginEndDisplay"
+        android:layout_marginRight="@dimen/marginRightDisplay"
         android:gravity="end"
         android:text="@string/_0"
         android:textAlignment="textEnd"
