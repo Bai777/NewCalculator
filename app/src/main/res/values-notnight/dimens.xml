@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="topMarginMainButton">84dp</dimen>
+    <dimen name="textSizeDisplay">48sp</dimen>
+    <dimen name="marginTopDisplay">20dp</dimen>
+    <dimen name="sizeBtnCalc">34sp</dimen>
+    <dimen name="button_round_radius">20dp</dimen>
+    <dimen name="textSizeButtonMainView">20sp</dimen>
+    <dimen name="marginRightDisplay">15dp</dimen>
+    <dimen name="marginEndDisplay">15dp</dimen>
+</resources>
