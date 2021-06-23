@@ -4,8 +4,10 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioGroup;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,7 +18,7 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String appTheme = "APP_THEME";
+    private static final String APP_THEME = "APP_THEME";
     private static final int MyStyleMainCalcNotnight = 0;
     private static final int MyStyleMainCalcNight = 1;
     private Button btnMainDisplay;
@@ -40,6 +42,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         initRadiobutton(findViewById(R.id.radionotnight), MyStyleMainCalcNotnight);
         initRadiobutton(findViewById(R.id.radionight), MyStyleMainCalcNight);
+        RadioGroup rg = findViewById(R.id.radioGroup);
+        ((MaterialRadioButton)rg.getChildAt(getCodeStyle(MyStyleMainCalcNotnight))).setChecked(true);
     }
 
     private void initRadiobutton(View button, final int codeStyle) {
@@ -54,19 +58,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     private int getCodeStyle(int codeStyle){
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        return sharedPref.getInt(appTheme, codeStyle);
+       // Log.d("myLog", sharedPref.getInt(APP_THEME, codeStyle)+"");
+        return sharedPref.getInt(APP_THEME, codeStyle);
     }
 
     private void setAppTheme(int codeStyle){
         SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(appTheme, codeStyle);
+        editor.putInt(APP_THEME, codeStyle);
         editor.apply();
     }
 
     private int codeStyleToStyleId(int codeStyle){
         switch (codeStyle){
-            case 1:
+            case MyStyleMainCalcNight:
                 return R.style.MyStyleMainCalcNight;
             default:
                 return R.style.MyStyleMainCalcNotnight;
