@@ -8,4 +8,5 @@
     <dimen name="textSizeButtonMainView">20sp</dimen>
     <dimen name="marginRightDisplay">15dp</dimen>
     <dimen name="marginEndDisplay">15dp</dimen>
+    <dimen name="sizetextrarionbtns">20sp</dimen>
 </resources>

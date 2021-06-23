@@ -30,4 +30,6 @@
     <string name="robot">robot</string>
     <string name="btnScrollView">Scroll View</string>
     <string name="btnTextMainDisplayExit">Выход</string>
+    <string name="radiotextbtnnotnight">Светлая тема</string>
+    <string name="radiobtntextnight">Тёмная тема</string>
 </resources>

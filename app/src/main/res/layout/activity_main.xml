@@ -26,8 +26,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
         android:text="@string/nameBtnMainLayout"
-        android:textSize="@dimen/textSizeButtonMainView"
         android:textColor="@color/white"
+        android:textSize="@dimen/textSizeButtonMainView"
         app:backgroundTint="#B1F2D14F"
         app:layout_constraintBottom_toTopOf="@+id/btnMainExit"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,14 +41,38 @@
         android:layout_height="wrap_content"
         android:background="@drawable/button_round"
         android:text="@string/btnTextMainDisplayExit"
-        android:textSize="@dimen/textSizeButtonMainView"
         android:textColor="@color/white"
+        android:textSize="@dimen/textSizeButtonMainView"
         app:backgroundTint="#B1F2D14F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnMianLayout"
         tools:ignore="UsingOnClickInXml" />
+
+    <RadioButton
+        android:id="@+id/radionotnight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/radiotextbtnnotnight"
+        android:textSize="@dimen/sizetextrarionbtns"
+        android:textColor="#57D6DD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/radionight"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainExit" />
+
+    <RadioButton
+        android:id="@+id/radionight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/radiobtntextnight"
+        android:textColor="#57D6DD"
+        android:textSize="@dimen/sizetextrarionbtns"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/radionotnight"
+        app:layout_constraintTop_toBottomOf="@+id/btnMainExit" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
