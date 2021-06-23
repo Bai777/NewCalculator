@@ -2,22 +2,33 @@ package com.example.newcalculator;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.radiobutton.MaterialRadioButton;
 
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
+    private static final String SHARED_PREF = "SHARED_PREF";
+    private static final String appTheme = "APP_THEME";
+    private static final int MyStyleMainCalcNotnight = 0;
+    private static final int MyStyleMainCalcNight = 1;
     private Button btnMainDisplay;
     private Button btnMainExit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getAppTheme(R.style.MyStyleMainCalcNotnight));
         setContentView(R.layout.activity_main);
+
+        initThemeChooser();
 
         initialization();
 
@@ -25,7 +36,44 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMainExit.setOnClickListener(this);
     }
 
-    public void initialization(){
+    private void initThemeChooser() {
+
+        initRadiobutton(findViewById(R.id.radionotnight), MyStyleMainCalcNotnight);
+        initRadiobutton(findViewById(R.id.radionight), MyStyleMainCalcNight);
+    }
+
+    private void initRadiobutton(View button, final int codeStyle) {
+        button.setOnClickListener(v -> {
+            setAppTheme(codeStyle);
+            recreate();
+        });
+    }
+    private int getAppTheme(int codeStyle){
+        return codeStyleToStyleId(getCodeStyle(codeStyle));
+    }
+
+    private int getCodeStyle(int codeStyle){
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        return sharedPref.getInt(appTheme, codeStyle);
+    }
+
+    private void setAppTheme(int codeStyle){
+        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putInt(appTheme, codeStyle);
+        editor.apply();
+    }
+
+    private int codeStyleToStyleId(int codeStyle){
+        switch (codeStyle){
+            case 1:
+                return R.style.MyStyleMainCalcNight;
+            default:
+                return R.style.MyStyleMainCalcNotnight;
+        }
+    }
+
+    public void initialization() {
         btnMainDisplay = findViewById(R.id.btnMianLayout);
         btnMainExit = findViewById(R.id.btnMainExit);
     }
@@ -33,7 +81,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @SuppressLint("NonConstantResourceId")
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.btnMianLayout:
                 Intent intentCalcActivity = new Intent(this, CalcActivity.class);
                 startActivity(intentCalcActivity);
@@ -45,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "Something wrong", Toast.LENGTH_SHORT).show();
         }
     }
-
 
 
 }
