@@ -32,4 +32,10 @@
     <string name="btnTextMainDisplayExit">Выход</string>
     <string name="radiotextbtnnotnight">Светлая тема</string>
     <string name="radiobtntextnight">Тёмная тема</string>
+    <string name="loginName">Введите логин</string>
+    <string name="password">Введите пароль</string>
+    <string name="my_style">Мой стиль</string>
+    <string name="light_style">Светлая тема</string>
+    <string name="dark_style">Тёмная тема</string>
+    <string name="castome_style">Нестандартная тема</string>
 </resources>
