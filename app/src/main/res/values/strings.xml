@@ -37,5 +37,5 @@
     <string name="my_style">Мой стиль</string>
     <string name="light_style">Светлая тема</string>
     <string name="dark_style">Тёмная тема</string>
-    <string name="castome_style">Нестандартная тема</string>
+    <string name="custom_style">Нестандартная тема</string>
 </resources>

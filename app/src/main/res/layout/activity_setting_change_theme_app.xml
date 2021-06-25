@@ -66,28 +66,28 @@
         app:layout_constraintTop_toBottomOf="@+id/buttonCancel">
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMyCoolStyle"
+            android:id="@+id/radioButtonMyStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/my_style" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialLight"
+            android:id="@+id/radioButtonLightStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/light_style" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialLightDarkAction"
+            android:id="@+id/radioButtonDarkStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dark_style" />
 
         <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radioButtonMaterialDark"
+            android:id="@+id/radioButtonCustomStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/castome_style" />
+            android:text="@string/custom_style" />
 
     </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
