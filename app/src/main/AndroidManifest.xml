@@ -11,6 +11,7 @@
         android:theme="@style/Theme.Calculator">
         <activity android:name=".ScrolView" />
         <activity android:name=".CalcActivity" />
+        <activity android:name=".SettingActivityChangeThemeApp"/>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

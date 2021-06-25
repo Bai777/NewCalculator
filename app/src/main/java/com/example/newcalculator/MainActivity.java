@@ -23,65 +23,29 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private static final int MyStyleMainCalcNight = 1;
     private Button btnMainDisplay;
     private Button btnMainExit;
+    private Button btnMainSettingTheme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setTheme(getAppTheme(R.style.MyStyleMainCalcNotnight));
         setContentView(R.layout.activity_main);
-
-        initThemeChooser();
 
         initialization();
 
         btnMainDisplay.setOnClickListener(this);
         btnMainExit.setOnClickListener(this);
+        btnMainSettingTheme.setOnClickListener(this);
+
     }
 
-    private void initThemeChooser() {
 
-        initRadiobutton(findViewById(R.id.radionotnight), MyStyleMainCalcNotnight);
-        initRadiobutton(findViewById(R.id.radionight), MyStyleMainCalcNight);
-        RadioGroup rg = findViewById(R.id.radioGroup);
-        ((MaterialRadioButton)rg.getChildAt(getCodeStyle(MyStyleMainCalcNotnight))).setChecked(true);
-    }
-
-    private void initRadiobutton(View button, final int codeStyle) {
-        button.setOnClickListener(v -> {
-            setAppTheme(codeStyle);
-            recreate();
-        });
-    }
-    private int getAppTheme(int codeStyle){
-        return codeStyleToStyleId(getCodeStyle(codeStyle));
-    }
-
-    private int getCodeStyle(int codeStyle){
-        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-       // Log.d("myLog", sharedPref.getInt(APP_THEME, codeStyle)+"");
-        return sharedPref.getInt(APP_THEME, codeStyle);
-    }
-
-    private void setAppTheme(int codeStyle){
-        SharedPreferences sharedPref = getSharedPreferences(SHARED_PREF, MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putInt(APP_THEME, codeStyle);
-        editor.apply();
-    }
-
-    private int codeStyleToStyleId(int codeStyle){
-        switch (codeStyle){
-            case MyStyleMainCalcNight:
-                return R.style.MyStyleMainCalcNight;
-            default:
-                return R.style.MyStyleMainCalcNotnight;
-        }
-    }
 
     public void initialization() {
         btnMainDisplay = findViewById(R.id.btnMianLayout);
         btnMainExit = findViewById(R.id.btnMainExit);
+        btnMainSettingTheme = findViewById(R.id.btnMainSettingTheme);
     }
+
 
     @SuppressLint("NonConstantResourceId")
     @Override
@@ -90,6 +54,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             case R.id.btnMianLayout:
                 Intent intentCalcActivity = new Intent(this, CalcActivity.class);
                 startActivity(intentCalcActivity);
+                break;
+            case R.id.btnMainSettingTheme:
+                Intent intentSettingActivity = new Intent(this, SettingActivityChangeThemeApp.class);
+                startActivity(intentSettingActivity);
                 break;
             case R.id.btnMainExit:
                 System.exit(0);

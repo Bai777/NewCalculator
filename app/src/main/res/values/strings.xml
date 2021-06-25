@@ -38,4 +38,5 @@
     <string name="light_style">Светлая тема</string>
     <string name="dark_style">Тёмная тема</string>
     <string name="custom_style">Нестандартная тема</string>
+    <string name="SettingsActivity">Активити с темами</string>
 </resources>

@@ -28,10 +28,25 @@
         android:text="@string/nameBtnMainLayout"
         android:textSize="@dimen/textSizeButtonMainView"
         app:backgroundTint="#B1F2D14F"
-        app:layout_constraintBottom_toTopOf="@id/btnMainExit"
+        app:layout_constraintBottom_toTopOf="@id/btnMainSettingTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/appCompatImageViewMain"
+        app:layout_constraintVertical_chainStyle="spread"
+        tools:ignore="UsingOnClickInXml" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMainSettingTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_round"
+        android:text="@string/SettingsActivity"
+        android:textSize="@dimen/textSizeButtonMainView"
+        app:backgroundTint="@color/bntsmaindisplay"
+        app:layout_constraintBottom_toTopOf="@+id/btnMainExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMianLayout"
         tools:ignore="UsingOnClickInXml" />
 
     <androidx.appcompat.widget.AppCompatButton
@@ -45,36 +60,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMianLayout"
+        app:layout_constraintTop_toBottomOf="@id/btnMainSettingTheme"
         tools:ignore="UsingOnClickInXml" />
 
-    <RadioGroup
-        android:id="@+id/radioGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btnMainExit">
 
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radionotnight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/radiotextbtnnotnight"
-            android:textColor="@color/btnradionotnight"
-            android:textSize="@dimen/sizetextrarionbtns" />
-
-        <com.google.android.material.radiobutton.MaterialRadioButton
-            android:id="@+id/radionight"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/radiobtntextnight"
-            android:textColor="@color/btnradionight"
-            android:textSize="@dimen/sizetextrarionbtns" />
-
-    </RadioGroup>
 </androidx.constraintlayout.widget.ConstraintLayout>
 
 
