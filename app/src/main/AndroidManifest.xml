@@ -9,6 +9,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Calculator">
+        <activity android:name=".SettingActivityThemeApp"></activity>
         <activity android:name=".ScrolView" />
         <activity android:name=".CalcActivity" />
         <activity android:name=".MainActivity">
