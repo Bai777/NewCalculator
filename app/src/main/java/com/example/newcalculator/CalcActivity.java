@@ -47,7 +47,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-    
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -208,7 +208,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void clearbtnAC() {
-        calcDisplay.setText("0");
+        calcDisplay.setText("");
         this.str_num = "";
         this.first_num = 0;
         this.operation = 'A';
@@ -220,10 +220,17 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void mathAction(char operation) {
+
         if (this.operation != '+' && this.operation != '-'
-                && this.operation != '/' && this.operation != '*') {
+                && this.operation != '/' && this.operation != '*' && this.str_num.contains(".")) {
             this.first_num = Float.parseFloat(this.str_num);
-            calcDisplay.setText(String.valueOf(operation));
+            calcDisplay.setText((this.first_num + "" + operation));
+            this.str_num = "";
+            this.operation = operation;
+        }else if(this.operation == '+' && this.operation == '-'
+                && this.operation == '/' && this.operation == '*'){
+            this.first_num = Integer.parseInt(this.str_num);
+            calcDisplay.setText((this.first_num + "" + operation));
             this.str_num = "";
             this.operation = operation;
         }
