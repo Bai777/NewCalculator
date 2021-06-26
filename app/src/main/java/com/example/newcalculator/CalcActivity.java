@@ -4,9 +4,8 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.os.Parcel;
 import android.os.Parcelable;
 import android.util.Log;
 import android.view.View;
@@ -42,7 +41,6 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     private String str_num = "";
     private float first_num;
-    private int first_num_int;
     private char operation;
 
 
@@ -201,10 +199,15 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void plusMinus() {
-        if (!this.str_num.equals("")) {
+        if (!this.str_num.equals("") && !this.str_num.contains(".")) {
             int num = Integer.parseInt(this.str_num) * -1;
-            this.str_num = Integer.toString(num);
-            calcDisplay.setText(str_num);
+            String cast = Integer.toString(num);
+            calcDisplay.setText(cast);
+        }
+        else if (!this.str_num.equals("") && this.str_num.contains(".")){
+            this.first_num = Float.parseFloat(this.str_num) * -1;
+            String cast = Float.toString(this.first_num);
+            calcDisplay.setText(cast);
         }
     }
 
@@ -230,9 +233,9 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
             this.operation = operation;
         }else if(this.operation != '+' && this.operation != '-'
                 && this.operation != '/' && this.operation != '*' && !this.str_num.contains(".")){
-             Log.d("myLog", operation+"");
-            this.first_num_int = Integer.parseInt(this.str_num);
-            calcDisplay.setText((this.first_num_int + "" + operation));
+
+            int num = Integer.parseInt(this.str_num);
+            calcDisplay.setText((num + "" + operation));
             this.str_num = "";
             this.operation = operation;
         }
