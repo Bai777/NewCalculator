@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-import android.annotation.SuppressLint;
+
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -14,7 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
-public class CalcActivity extends AppCompatActivity implements View.OnClickListener{
+public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
 
     private static final String Key = "Key_values";
 
@@ -40,12 +40,11 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     private Button btnEqually;
 
     private String str_num = "";
-    private float first_num;
+    private int first_num;
     private char operation;
     private String cast;
-
-
-
+    private float first_num_float;
+    private int first_num_int;
 
 
     @Override
@@ -109,43 +108,43 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()) {
             case R.id.btnZero:
                 first_num = 0;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnOne:
                 first_num = 1;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnTwo:
                 first_num = 2;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnThree:
                 first_num = 3;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnFour:
                 first_num = 4;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnFive:
                 first_num = 5;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnSix:
                 first_num = 6;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnSeven:
                 first_num = 7;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnEight:
                 first_num = 8;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnNine:
                 first_num = 9;
-                addNumber((int) first_num);
+                addNumber(first_num);
                 break;
             case R.id.btnAC:
                 clearbtnAC();
@@ -172,7 +171,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 mathAction('+');
                 break;
             case R.id.btnEqually:
-                if(this.operation == '+' || this.operation == '-'
+                if (this.operation == '+' || this.operation == '-'
                         || this.operation == '/' || this.operation == '*')
                     equalMethod();
                 break;
@@ -182,10 +181,9 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void comma() {
-        if (calcDisplay.getText() == ""){
+        if (calcDisplay.getText() == "") {
             calcDisplay.setText(this.str_num = "0.");
-        }
-        else if (!this.str_num.contains(".")) {
+        } else if (!this.str_num.contains(".")) {
             this.str_num += ".";
             calcDisplay.setText(str_num);
         }
@@ -200,14 +198,14 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void plusMinus() {
+        float res = 0;
         if (!this.str_num.equals("") && !this.str_num.contains(".")) {
             int num = Integer.parseInt(this.str_num) * -1;
             this.cast = Integer.toString(num);
             calcDisplay.setText(this.cast);
-        }
-        else if (!this.str_num.equals("") && this.str_num.contains(".")){
-            this.first_num = Float.parseFloat(this.str_num) * -1;
-            this.cast = Float.toString(this.first_num);
+        } else if (!this.str_num.equals("") && this.str_num.contains(".")) {
+            res = (Float.parseFloat(this.str_num)) * -1;
+            this.cast = Float.toString(res);
             calcDisplay.setText(this.cast);
         }
     }
@@ -217,14 +215,17 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         this.str_num = "";
         this.first_num = 0;
         this.operation = 'A';
+        this.cast = "";
+        this.first_num_float = 0;
+        this.first_num_int = 0;
     }
 
 
     public void addNumber(int number) {
-        if (calcDisplay.getText().equals(".")){
+        if (calcDisplay.getText().equals(".")) {
             str_num += Float.toString(number);
             calcDisplay.setText(str_num);
-        }else {
+        } else {
             str_num += Integer.toString(number);
             calcDisplay.setText(str_num);
         }
@@ -232,18 +233,17 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void mathAction(char operation) {
-
         if (this.operation != '+' && this.operation != '-'
                 && this.operation != '/' && this.operation != '*' && this.str_num.contains(".")) {
-            this.first_num = Float.parseFloat(this.str_num);
-            calcDisplay.setText((this.first_num + "" + operation));
+            first_num_float = Float.parseFloat(this.str_num);
+            calcDisplay.setText((first_num_float + "" + operation));
             this.str_num = "";
             this.operation = operation;
-        }else if(this.operation != '+' && this.operation != '-'
-                && this.operation != '/' && this.operation != '*' && !this.str_num.contains(".")){
+        } else if (this.operation != '+' && this.operation != '-'
+                && this.operation != '/' && this.operation != '*' && !this.str_num.contains(".")) {
 
-            int num = Integer.parseInt(this.str_num);
-            calcDisplay.setText((num + "" + operation));
+            first_num_int = Integer.parseInt(this.str_num);
+            calcDisplay.setText((first_num_int + "" + operation));
             this.str_num = "";
             this.operation = operation;
         }
@@ -251,36 +251,47 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void equalMethod() {
-        float res = 0;
+        float result = 0;
+        String s;
         switch (this.operation) {
             case '+':
-                res = this.first_num + Float.parseFloat(this.str_num);
+                if (calcDisplay.getText().equals("."))
+                    result = first_num_float + Float.parseFloat(str_num);
+//                Log.d("log", first_num_float + Float.parseFloat(str_num)+"");
+                s = Float.toString(result);
+                Log.d("log", s);
+                calcDisplay.setText(s);
                 break;
-            case '-':
-                res = this.first_num - Float.parseFloat(this.str_num);
-                break;
-            case '/':
-                if (Float.parseFloat(this.str_num) != 0)
-                    res = this.first_num / Float.parseFloat(this.str_num);
-                else
-                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();;
-                break;
-            case '*':
-                res = this.first_num * Float.parseFloat(this.str_num);
-                break;
+//            case '-':
+//                res = this.first_num - Float.parseFloat(this.str_num);
+//                break;
+//            case '/':
+//                if (Float.parseFloat(this.str_num) != 0)
+//                    res = this.first_num / Float.parseFloat(this.str_num);
+//                else
+//                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();
+//                ;
+//                break;
+//            case '*':
+//                res = this.first_num * Float.parseFloat(this.str_num);
+//                break;
+            default:
+                Toast.makeText(this, "Somting wrong", Toast.LENGTH_SHORT).show();
         }
 
-        calcDisplay.setText(Float.toString(res));
+
         clear();
 
     }
 
-    public void clear(){
+    public void clear() {
         this.str_num = "";
         this.operation = 'A';
         this.first_num = 0;
+        this.cast = "";
+        this.first_num_float = 0;
+        this.first_num_int = 0;
     }
-
 
 
     // Сохранение данных
