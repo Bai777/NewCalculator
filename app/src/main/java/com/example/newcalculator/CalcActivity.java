@@ -4,9 +4,11 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -97,6 +99,8 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         btnZero = findViewById(R.id.btnZero);
         btnComma = findViewById(R.id.btnComma);
         btnEqually = findViewById(R.id.btnEqually);
+
+
     }
 
 
@@ -179,7 +183,10 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void comma() {
-        if (!this.str_num.contains(".")) {
+        if (this.str_num == ""){
+            this.str_num = "0.";
+        }
+        else if (!this.str_num.contains(".")) {
             this.str_num += ".";
             calcDisplay.setText(str_num);
         }
@@ -195,8 +202,8 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     public void plusMinus() {
         if (!this.str_num.equals("")) {
-            float num = Float.parseFloat(this.str_num) * -1;
-            this.str_num = Float.toString(num);
+            int num = Integer.parseInt(this.str_num) * -1;
+            this.str_num = Integer.toString(num);
             calcDisplay.setText(str_num);
         }
     }
