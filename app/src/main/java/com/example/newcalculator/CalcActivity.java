@@ -42,6 +42,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     private String str_num = "";
     private float first_num;
+    private int first_num_int;
     private char operation;
 
 
@@ -182,8 +183,8 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void comma() {
-        if (this.str_num == ""){
-            this.str_num = "0.";
+        if (calcDisplay.getText() == ""){
+            calcDisplay.setText(this.str_num = "0.");
         }
         else if (!this.str_num.contains(".")) {
             this.str_num += ".";
@@ -220,17 +221,17 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void mathAction(char operation) {
-
+       // Log.d("myLog", operation+"");
         if (this.operation != '+' && this.operation != '-'
                 && this.operation != '/' && this.operation != '*' && this.str_num.contains(".")) {
             this.first_num = Float.parseFloat(this.str_num);
             calcDisplay.setText((this.first_num + "" + operation));
             this.str_num = "";
             this.operation = operation;
-        }else if(this.operation == '+' && this.operation == '-'
-                && this.operation == '/' && this.operation == '*'){
-            this.first_num = Integer.parseInt(this.str_num);
-            calcDisplay.setText((this.first_num + "" + operation));
+        }else if(this.operation == '+' || this.operation == '-'
+                || this.operation == '/' || this.operation == '*' && !this.str_num.contains(".")){
+            this.first_num_int = Integer.parseInt(this.str_num);
+            calcDisplay.setText((this.first_num_int + "" + operation));
             this.str_num = "";
             this.operation = operation;
         }

@@ -3,7 +3,6 @@
     <string name="app_name">Calculator</string>
     <string name="nameBtnMainLayout">Начнём вычисления</string>
     <string name="calcViewMain">Изображение калькулятора</string>
-    <string name="_0">0</string>
     <string name="textBtnAC">AC</string>
     <string name="textBtnPlusMinus">+/-</string>
     <string name="textBtnPercent">%</string>
