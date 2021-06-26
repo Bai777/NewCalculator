@@ -221,15 +221,16 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     public void mathAction(char operation) {
-       // Log.d("myLog", operation+"");
+
         if (this.operation != '+' && this.operation != '-'
                 && this.operation != '/' && this.operation != '*' && this.str_num.contains(".")) {
             this.first_num = Float.parseFloat(this.str_num);
             calcDisplay.setText((this.first_num + "" + operation));
             this.str_num = "";
             this.operation = operation;
-        }else if(this.operation == '+' || this.operation == '-'
-                || this.operation == '/' || this.operation == '*' && !this.str_num.contains(".")){
+        }else if(this.operation != '+' && this.operation != '-'
+                && this.operation != '/' && this.operation != '*' && !this.str_num.contains(".")){
+             Log.d("myLog", operation+"");
             this.first_num_int = Integer.parseInt(this.str_num);
             calcDisplay.setText((this.first_num_int + "" + operation));
             this.str_num = "";
