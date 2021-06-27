@@ -4,7 +4,6 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 
-
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.util.Log;
@@ -216,7 +215,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
         this.first_num = 0;
         this.operation = 'A';
         this.cast = "";
-        this.first_num_float = 0;
+        this.first_num_float = 0.0f;
         this.first_num_int = 0;
     }
 
@@ -251,20 +250,27 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
 
     public void equalMethod() {
-        float result = 0;
-        String s;
+
         switch (this.operation) {
             case '+':
-                if (calcDisplay.getText().equals("."))
-                    result = first_num_float + Float.parseFloat(str_num);
-//                Log.d("log", first_num_float + Float.parseFloat(str_num)+"");
-                s = Float.toString(result);
-                Log.d("log", s);
-                calcDisplay.setText(s);
+                if (calcDisplay.getText().equals(".")) {
+                    Log.d("log", first_num_float + Float.parseFloat(str_num) + "");
+                    floatDisplay(Float.toString(first_num_float + Float.parseFloat(str_num)));
+                }else if (!calcDisplay.getText().equals(".")){
+                    Log.d("log", first_num_int + Integer.parseInt(str_num) + "");
+                    intDisplay(Integer.toString(first_num_int + Integer.parseInt(str_num)));
+                }
+
                 break;
-//            case '-':
-//                res = this.first_num - Float.parseFloat(this.str_num);
-//                break;
+            case '-':
+                if (calcDisplay.getText().equals(".") || Float.toString(first_num_float).contains(".")) {
+//                    Log.d("log", first_num_float - Float.parseFloat(str_num) + "");
+                    floatDisplay(Float.toString(first_num_float - Float.parseFloat(str_num)));
+                }else if (!calcDisplay.getText().equals(".")){
+//                    Log.d("log", first_num_int - Integer.parseInt(str_num) + "");
+                    intDisplay(Integer.toString(first_num_int - Integer.parseInt(str_num)));
+                }
+                break;
 //            case '/':
 //                if (Float.parseFloat(this.str_num) != 0)
 //                    res = this.first_num / Float.parseFloat(this.str_num);
@@ -284,12 +290,20 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
+    private void intDisplay(String s) {
+        calcDisplay.setText(s);
+    }
+
+    private void floatDisplay(String s) {
+        calcDisplay.setText(s);
+    }
+
     public void clear() {
         this.str_num = "";
         this.operation = 'A';
         this.first_num = 0;
         this.cast = "";
-        this.first_num_float = 0;
+        this.first_num_float = 0.0f;
         this.first_num_int = 0;
     }
 
