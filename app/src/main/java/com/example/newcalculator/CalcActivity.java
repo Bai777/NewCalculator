@@ -256,7 +256,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 if (calcDisplay.getText().equals(".") || this.str_num.contains(".")) {
                     Log.d("log", first_num_float + Float.parseFloat(str_num) + "");
                     floatDisplay(Float.toString(first_num_float + Float.parseFloat(str_num)));
-                }else if (!calcDisplay.getText().equals(".")){
+                }else if (!calcDisplay.getText().equals(".") || this.str_num.contains(".")){
                     Log.d("log", first_num_int + Integer.parseInt(str_num) + "");
                     intDisplay(Integer.toString(first_num_int + Integer.parseInt(str_num)));
                 }
@@ -266,7 +266,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                 if (calcDisplay.getText().equals(".") || this.str_num.contains(".")) {
 //                    Log.d("log", first_num_float - Float.parseFloat(str_num) + "");
                     floatDisplay(Float.toString(first_num_float - Float.parseFloat(str_num)));
-                }else if (!calcDisplay.getText().equals(".")){
+                }else if (!calcDisplay.getText().equals(".") || this.str_num.contains(".")){
 //                    Log.d("log", first_num_int - Integer.parseInt(str_num) + "");
                     intDisplay(Integer.toString(first_num_int - Integer.parseInt(str_num)));
                 }
@@ -280,9 +280,12 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                     Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();
                 ;
                 break;
-//            case '*':
-//                res = this.first_num * Float.parseFloat(this.str_num);
-//                break;
+            case '*':
+                if (calcDisplay.getText().equals(".") || this.str_num.contains("."))
+                    floatDisplay(Float.toString(first_num_float * Float.parseFloat(str_num)));
+                else if (!calcDisplay.getText().equals(".") || this.str_num.contains("."))
+                    intDisplay(Integer.toString(first_num_int * Integer.parseInt(str_num)));
+                break;
             default:
                 Toast.makeText(this, "Somting wrong", Toast.LENGTH_SHORT).show();
         }
