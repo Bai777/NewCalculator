@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.util.Log;
 
 public class CalcActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -253,7 +253,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
         switch (this.operation) {
             case '+':
-                if (calcDisplay.getText().equals(".")) {
+                if (calcDisplay.getText().equals(".") || this.str_num.contains(".")) {
                     Log.d("log", first_num_float + Float.parseFloat(str_num) + "");
                     floatDisplay(Float.toString(first_num_float + Float.parseFloat(str_num)));
                 }else if (!calcDisplay.getText().equals(".")){
@@ -263,7 +263,7 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
 
                 break;
             case '-':
-                if (calcDisplay.getText().equals(".") || Float.toString(first_num_float).contains(".")) {
+                if (calcDisplay.getText().equals(".") || this.str_num.contains(".")) {
 //                    Log.d("log", first_num_float - Float.parseFloat(str_num) + "");
                     floatDisplay(Float.toString(first_num_float - Float.parseFloat(str_num)));
                 }else if (!calcDisplay.getText().equals(".")){
@@ -271,13 +271,15 @@ public class CalcActivity extends AppCompatActivity implements View.OnClickListe
                     intDisplay(Integer.toString(first_num_int - Integer.parseInt(str_num)));
                 }
                 break;
-//            case '/':
-//                if (Float.parseFloat(this.str_num) != 0)
-//                    res = this.first_num / Float.parseFloat(this.str_num);
-//                else
-//                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();
-//                ;
-//                break;
+            case '/':
+                if (calcDisplay.getText().equals(".") || this.str_num.contains(".") && Float.parseFloat(this.str_num) != 0) {
+                    floatDisplay(Float.toString(first_num_float / Float.parseFloat(str_num)));
+                } else if(!calcDisplay.getText().equals(".") || !this.str_num.contains(".") && Float.parseFloat(this.str_num) != 0){
+                    intDisplay(Integer.toString(first_num_int / Integer.parseInt(str_num)));
+                }else
+                    Toast.makeText(this, "На ноль делить нельзя!!!", Toast.LENGTH_SHORT).show();
+                ;
+                break;
 //            case '*':
 //                res = this.first_num * Float.parseFloat(this.str_num);
 //                break;
