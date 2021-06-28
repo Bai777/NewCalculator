@@ -6,9 +6,4 @@
     <dimen name="sizeBtnCalc">34sp</dimen>
     <dimen name="button_round_radius">20dp</dimen>
     <dimen name="textSizeButtonMainView">20sp</dimen>
-    <dimen name="marginRightDisplay">15dp</dimen>
-    <dimen name="marginEndDisplay">15dp</dimen>
-    <dimen name="sizetextrarionbtns">20sp</dimen>
-    <dimen name="margin">8dp</dimen>
-    <dimen name="textSize">42sp</dimen>
 </resources>

@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/teal_200"
+    android:background="@drawable/fon_main_activity"
     tools:context=".MainActivity">
-
-
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/appCompatImageViewMain"
@@ -15,24 +13,55 @@
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/calcViewMain"
-        app:layout_constraintBottom_toTopOf="@+id/buttonMianLayout"
+        app:layout_constraintBottom_toTopOf="@id/btnMianLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_chainStyle="spread"
         app:srcCompat="@drawable/calcimgmain" />
 
-
-    <Button
-        android:id="@+id/buttonMianLayout"
-        android:layout_width="match_parent"
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMianLayout"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/topMarginMainButton"
+        android:background="@drawable/button_round"
         android:text="@string/nameBtnMainLayout"
+        android:textSize="@dimen/textSizeButtonMainView"
+        app:backgroundTint="#B1F2D14F"
+        app:layout_constraintBottom_toTopOf="@id/btnMainSettingTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/appCompatImageViewMain"
+        app:layout_constraintTop_toBottomOf="@id/appCompatImageViewMain"
+        app:layout_constraintVertical_chainStyle="spread"
         tools:ignore="UsingOnClickInXml" />
 
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMainSettingTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_round"
+        android:text="@string/SettingsActivity"
+        android:textSize="@dimen/textSizeButtonMainView"
+        app:backgroundTint="@color/bntsmaindisplay"
+        app:layout_constraintBottom_toTopOf="@+id/btnMainExit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnMianLayout"
+        tools:ignore="UsingOnClickInXml" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btnMainExit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_round"
+        android:text="@string/btnTextMainDisplayExit"
+        android:textSize="@dimen/textSizeButtonMainView"
+        app:backgroundTint="@color/bntsmaindisplay"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnMainSettingTheme"
+        tools:ignore="UsingOnClickInXml" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
