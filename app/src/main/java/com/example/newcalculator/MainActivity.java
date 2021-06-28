@@ -1,6 +1,7 @@
 package com.example.newcalculator;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -17,10 +18,7 @@ import com.google.android.material.radiobutton.MaterialRadioButton;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private static final String SHARED_PREF = "SHARED_PREF";
-    private static final String APP_THEME = "APP_THEME";
-    private static final int MyStyleMainCalcNotnight = 0;
-    private static final int MyStyleMainCalcNight = 1;
+
     private Button btnMainDisplay;
     private Button btnMainExit;
     private Button btnMainSettingTheme;
@@ -30,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         initialization();
 
         btnMainDisplay.setOnClickListener(this);
@@ -37,7 +36,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         btnMainSettingTheme.setOnClickListener(this);
 
     }
-
 
 
     public void initialization() {
